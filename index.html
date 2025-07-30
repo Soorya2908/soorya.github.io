@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Director Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+      background-color: #121212;
+      color: #ffffff;
+    }
+    header {
+      background: url('banner.jpg') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 3rem;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 1rem;
+      border-radius: 10px;
+    }
+    section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .projects, .gallery {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .card {
+      background: #1e1e1e;
+      padding: 1rem;
+      border-radius: 10px;
+    }
+    .card img {
+      max-width: 100%;
+      border-radius: 5px;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #1a1a1a;
+    }
+    a {
+      color: #ffd700;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>John Doe — Director & Visual Storyteller</h1>
+  </header>
+
+  <section>
+    <h2>About</h2>
+    <p>John Doe is an award-winning filmmaker and visual artist known for capturing raw emotion through visual storytelling. With over a decade of experience in the industry, his work spans across short films, commercials, and documentaries.</p>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="card">
+        <img src="project1.jpg" alt="Project 1">
+        <h3>The Silent Echo</h3>
+        <p>A short film exploring the human condition during isolation. (2023)</p>
+      </div>
+      <div class="card">
+        <img src="project2.jpg" alt="Project 2">
+        <h3>Wanderer's Soul</h3>
+        <p>Documentary following nomadic tribes in the Himalayas. (2022)</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Photography</h2>
+    <div class="gallery">
+      <img src="photo1.jpg" alt="Gallery Photo 1">
+      <img src="photo2.jpg" alt="Gallery Photo 2">
+      <img src="photo3.jpg" alt="Gallery Photo 3">
+    </div>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:john.doe@email.com">john.doe@email.com</a></p>
+    <p>Instagram: <a href="https://instagram.com/johndoe" target="_blank">@johndoe</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 John Doe. All rights reserved.</p>
+  </footer>
+</body>
+</html>
