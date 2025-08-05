@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sedhumathavan | Film Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Zilla+Slab:wght@400;700&display=swap" rel="stylesheet">
+  <title>Intro with Smooth Transition</title>
   <style>
     * {
       margin: 0;
@@ -12,198 +11,143 @@
       box-sizing: border-box;
     }
 
-    html {
+    html, body {
+      height: 100%;
+      font-family: Arial, sans-serif;
       scroll-behavior: smooth;
     }
 
-    body {
-      font-family: 'Zilla Slab', serif;
-      background-color: #000;
-      color: #ffffff;
-    }
-
-    header {
+    .intro {
       height: 100vh;
-      background: url('background-intro.jpg') center/cover no-repeat;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 2rem;
       text-align: center;
+      color: #fff;
+      background: #000;
+      position: relative;
     }
 
-    header h1 {
-      font-size: 3.5rem;
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 1rem 2rem;
-      border-radius: 10px;
+    .intro h1 {
+      font-size: 3rem;
+      line-height: 1.5;
+      max-width: 80%;
     }
 
-    header p {
-      margin-top: 1rem;
-      font-size: 1.8rem;
-      font-family: 'Caveat', cursive;
-      background: rgba(0, 0, 0, 0.4);
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
+    .intro h1 a {
+      color: #00ffff;
+      text-decoration: underline;
+      cursor: pointer;
     }
 
-    nav {
-      margin-top: 2rem;
-    }
-
-    nav a {
-      color: #ffd700;
-      text-decoration: none;
-      margin: 0 10px;
-      font-size: 1.1rem;
-      font-weight: bold;
-      padding: 8px 12px;
-      border: 2px solid #ffd700;
-      border-radius: 20px;
-      transition: all 0.3s ease;
-    }
-
-    nav a:hover {
-      background-color: #ffd700;
-      color: #000;
-    }
-
-    section {
+    .slideshow {
+      position: relative;
       height: 100vh;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
       background-size: cover;
       background-position: center;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      padding: 2rem 4rem;
-      position: relative;
-      animation: fadeIn 1.5s ease-in;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
+    .slide.active {
+      opacity: 1;
     }
 
-    section::before {
-      content: "";
+    .content {
       position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.85));
-      z-index: 1;
-    }
-
-    .overlay {
-      position: relative;
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 2rem;
-      border-radius: 12px;
-      max-width: 600px;
-      z-index: 2;
-      text-align: left;
+      bottom: 20%;
+      left: 50%;
+      transform: translateX(-50%);
       color: #fff;
-    }
-
-    .overlay h2 {
-      font-family: 'Caveat', cursive;
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .overlay p {
-      font-style: italic;
-      font-size: 1.1rem;
-      line-height: 1.7;
-    }
-
-    footer {
       text-align: center;
-      padding: 2rem;
-      background: #111;
-      font-size: 0.9rem;
+      cursor: pointer;
     }
 
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      .overlay h2 {
-        font-size: 1.8rem;
-      }
-      .overlay p {
-        font-size: 1rem;
-      }
-      header, section {
-        justify-content: center;
-        padding: 2rem;
-        text-align: center;
-      }
+    .content h2 {
+      font-size: 2rem;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 10px 20px;
+      border-radius: 10px;
+      transition: background 0.3s ease;
+    }
+
+    .content h2:hover {
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .content.expand p {
+      margin-top: 15px;
+      font-size: 1.1rem;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 15px;
+      border-radius: 8px;
     }
   </style>
 </head>
 <body>
 
-  <!-- Hero Section -->
-  <header>
-    <h1>Sedhumathavan</h1>
-    <p>Screenplay Writer | Director | Visual Storyteller</p>
-    <nav>
-      <a href="#direction">Direction</a>
-      <a href="#screenplay">Screenplay</a>
-      <a href="#production">Prod. Design</a>
-      <a href="#assistant">Asst. Director</a>
-      <a href="#acting">Actor</a>
-    </nav>
-  </header>
+  <!-- Intro Section -->
+  <section class="intro">
+    <h1>
+      Welcome to my portfolio! <br />
+      Click on <a href="#direction">direction</a> to explore more.
+    </h1>
+  </section>
 
-  <!-- Direction Section -->
-  <section id="direction" style="background-image: url('pic1.jpg');">
-    <div class="overlay">
+  <!-- Slideshow Section -->
+  <section id="direction" class="slideshow">
+    <div class="slide active" style="background-image: url('pic1.jpg');"></div>
+    <div class="slide" style="background-image: url('pic2.jpg');"></div>
+    <div class="slide" style="background-image: url('pic3.jpg');"></div>
+    <div class="slide" style="background-image: url('pic4.jpg');"></div>
+    <div class="slide" style="background-image: url('pic5.jpg');"></div>
+
+    <div class="content" onclick="expandContent(this)">
       <h2>Direction</h2>
-      <p>Directed <em>“Whispers of the Wind”</em> (2024) — a poignant short on grief and silence. Official Selection at IndieCineFest. Created visual narratives grounded in emotion and space.</p>
+      <p style="display: none;">
+        This is the direction section where I showcase the path of my creative work, process, and visual journey.
+      </p>
     </div>
   </section>
 
-  <!-- Screenplay Writing Section -->
-  <section id="screenplay" style="background-image: url('pic2.jpg');">
-    <div class="overlay">
-      <h2>Screenplay Writing</h2>
-      <p>Scripted <em>“Echoes in the Frame”</em> (2023), a non-linear psychological narrative, acclaimed for its layered characters and subtext-rich dialogues.</p>
-    </div>
-  </section>
+  <script>
+    // Background slideshow logic
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;
 
-  <!-- Asst. Production Designer Section -->
-  <section id="production" style="background-image: url('pic3.jpg');">
-    <div class="overlay">
-      <h2>Asst. Production Designer</h2>
-      <p>Worked on <em>“The Forgotten City”</em> (2023), managing set aesthetics, props, and continuity — bringing era-specific realism to the screen.</p>
-    </div>
-  </section>
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) {
+          slide.classList.add('active');
+        }
+      });
+    }
 
-  <!-- Asst. Director Section -->
-  <section id="assistant" style="background-image: url('pic4.jpg');">
-    <div class="overlay">
-      <h2>Asst. Director</h2>
-      <p>Organized schedules, call sheets, and communication on the set of <em>“Chiaroscuro”</em> (2022). Ensured seamless shoot coordination and direction support.</p>
-    </div>
-  </section>
+    setInterval(() => {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    }, 5000); // every 5 seconds
 
-  <!-- Actor Section -->
-  <section id="acting" style="background-image: url('pic5.jpg');">
-    <div class="overlay">
-      <h2>Actor</h2>
-      <p>Played lead in <em>“A Room with Echoes”</em> (2021), portraying a character trapped between memory and madness. Praised for subtle, introspective performance.</p>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Sedhumathavan. All rights reserved.</p>
-  </footer>
+    // Expand content logic
+    function expandContent(element) {
+      const paragraph = element.querySelector('p');
+      if (paragraph.style.display === "none") {
+        paragraph.style.display = "block";
+        element.classList.add("expand");
+      } else {
+        paragraph.style.display = "none";
+        element.classList.remove("expand");
+      }
+    }
+  </script>
 
 </body>
 </html>
