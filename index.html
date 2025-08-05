@@ -2,103 +2,145 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Director Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sedhumathavan | Film Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto&display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
       font-family: 'Playfair Display', serif;
-      background-color: #121212;
       color: #ffffff;
+      background-color: #000;
     }
     header {
-      background: url('banner.jpg') center/cover no-repeat;
       height: 100vh;
+      background: url('background-intro.jpg') center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
+      flex-direction: column;
+      padding: 0 2rem;
     }
     header h1 {
-      font-size: 3rem;
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 1rem;
+      font-size: 3.5rem;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 1rem 2rem;
       border-radius: 10px;
+    }
+    header p {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      font-family: 'Roboto', sans-serif;
     }
     section {
-      padding: 4rem 2rem;
-      max-width: 1000px;
-      margin: auto;
+      height: 100vh;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
     }
-    .projects, .gallery {
-      display: grid;
-      gap: 1rem;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-    .card {
-      background: #1e1e1e;
-      padding: 1rem;
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 2rem;
       border-radius: 10px;
+      max-width: 800px;
+      text-align: center;
     }
-    .card img {
-      max-width: 100%;
-      border-radius: 5px;
+    .overlay h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .overlay p {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.1rem;
+      line-height: 1.6;
     }
     footer {
       text-align: center;
       padding: 2rem;
-      background: #1a1a1a;
+      background: #111;
+      font-size: 0.9rem;
     }
-    a {
-      color: #ffd700;
-      text-decoration: none;
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+      .overlay h2 {
+        font-size: 1.8rem;
+      }
+      .overlay p {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
+
+  <!-- Hero Section -->
   <header>
-    <h1>John Doe — Director & Visual Storyteller</h1>
+    <h1>Sedhumathavan</h1>
+    <p>Screenplay Writer | Director | Visual Storyteller</p>
   </header>
 
-  <section>
-    <h2>About</h2>
-    <p>John Doe is an award-winning filmmaker and visual artist known for capturing raw emotion through visual storytelling. With over a decade of experience in the industry, his work spans across short films, commercials, and documentaries.</p>
-  </section>
-
-  <section>
-    <h2>Projects</h2>
-    <div class="projects">
-      <div class="card">
-        <img src="project1.jpg" alt="Project 1">
-        <h3>The Silent Echo</h3>
-        <p>A short film exploring the human condition during isolation. (2023)</p>
-      </div>
-      <div class="card">
-        <img src="project2.jpg" alt="Project 2">
-        <h3>Wanderer's Soul</h3>
-        <p>Documentary following nomadic tribes in the Himalayas. (2022)</p>
-      </div>
+  <!-- Direction Section -->
+  <section style="background-image: url('direction-bg.jpg');">
+    <div class="overlay">
+      <h2>Direction</h2>
+      <p>Crafted visual narratives with compelling emotional arcs. Directed “Whispers of the Wind” (2024), a short film on grief and silence — Official Selection at IndieCineFest.</p>
     </div>
   </section>
 
-  <section>
-    <h2>Photography</h2>
-    <div class="gallery">
-      <img src="photo1.jpg" alt="Gallery Photo 1">
-      <img src="photo2.jpg" alt="Gallery Photo 2">
-      <img src="photo3.jpg" alt="Gallery Photo 3">
+  <!-- Screenplay Writing Section -->
+  <section style="background-image: url('screenplay-bg.jpg');">
+    <div class="overlay">
+      <h2>Screenplay Writing</h2>
+      <p>Wrote screenplay for “Echoes in the Frame” (2023), blending nonlinear timelines and symbolism. Praised for depth in character motivation and subtextual storytelling.</p>
     </div>
   </section>
 
-  <section>
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:john.doe@email.com">john.doe@email.com</a></p>
-    <p>Instagram: <a href="https://instagram.com/johndoe" target="_blank">@johndoe</a></p>
+  <!-- Asst. Production Designer Section -->
+  <section style="background-image: url('production-bg.jpg');">
+    <div class="overlay">
+      <h2>Asst. Production Designer</h2>
+      <p>Supported production design for “The Forgotten City” (2023), managing set aesthetics and design continuity with a keen eye for detail and period-accurate elements.</p>
+    </div>
   </section>
 
+  <!-- Asst. Director Section -->
+  <section style="background-image: url('asst-director-bg.jpg');">
+    <div class="overlay">
+      <h2>Asst. Director</h2>
+      <p>Coordinated and streamlined production schedules for “Chiaroscuro” (2022), ensuring seamless on-set communication between departments and talent.</p>
+    </div>
+  </section>
+
+  <!-- Actor Section -->
+  <section style="background-image: url('actor-bg.jpg');">
+    <div class="overlay">
+      <h2>Actor</h2>
+      <p>Portrayed the lead in “A Room with Echoes” (2021), a psychological drama exploring isolation and identity. Commended for nuanced expression and emotional restraint.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 John Doe. All rights reserved.</p>
+    <p>&copy; 2025 Sedhumathavan. All rights reserved.</p>
   </footer>
+
 </body>
 </html>
