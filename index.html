@@ -4,119 +4,146 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sedhumathavan | Film Portfolio</title>
-  <!-- Add this to the <head> -->
-<link href="https://fonts.googleapis.com/css2?family=Caveat&family=Zilla+Slab:wght@400;700&display=swap" rel="stylesheet">
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  html {
-    scroll-behavior: smooth;
-  }
-  body {
-    font-family: 'Zilla Slab', serif;
-    background-color: #000;
-    color: #ffffff;
-  }
-  header {
-    height: 100vh;
-    background: url('background-intro.jpg') center/cover no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    text-align: right;
-    flex-direction: column;
-    padding: 0 4rem 4rem 4rem;
-  }
-  header h1 {
-    font-size: 3.5rem;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 1rem 2rem;
-    border-radius: 10px;
-  }
-  header p {
-    margin-top: 1rem;
-    font-size: 1.3rem;
-    background: rgba(0, 0, 0, 0.4);
-    padding: 0.6rem 1rem;
-    border-radius: 5px;
-    font-family: 'Caveat', cursive;
-    font-size: 1.8rem;
-  }
-  section {
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 2rem 4rem;
-    position: relative;
-    margin-top: -100px; /* Bleed into next section */
-    z-index: 0;
-  }
-  section::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.8));
-    z-index: 1;
-  }
-  .overlay {
-    position: relative;
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 2rem;
-    border-radius: 10px;
-    max-width: 600px;
-    text-align: left;
-    z-index: 2;
-    font-family: 'Zilla Slab', serif;
-    box-shadow: 0 0 20px rgba(0,0,0,0.8);
-  }
-  .overlay h2 {
-    font-size: 2.2rem;
-    margin-bottom: 1rem;
-    font-family: 'Caveat', cursive;
-    font-weight: 700;
-    font-size: 2.5rem;
-  }
-  .overlay p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    font-style: italic;
-  }
-  footer {
-    text-align: center;
-    padding: 2rem;
-    background: #111;
-    font-size: 0.9rem;
-    z-index: 3;
-    position: relative;
-  }
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Zilla+Slab:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  @media (max-width: 768px) {
-    header h1 {
-      font-size: 2rem;
+    html {
+      scroll-behavior: smooth;
     }
-    .overlay h2 {
-      font-size: 1.8rem;
+
+    body {
+      font-family: 'Zilla Slab', serif;
+      background-color: #000;
+      color: #ffffff;
     }
-    .overlay p {
-      font-size: 1rem;
-    }
-    header, section {
+
+    header {
+      height: 100vh;
+      background: url('background-intro.jpg') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
       justify-content: center;
+      align-items: center;
       padding: 2rem;
       text-align: center;
     }
-  }
-</style>
 
+    header h1 {
+      font-size: 3.5rem;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 1rem 2rem;
+      border-radius: 10px;
+    }
+
+    header p {
+      margin-top: 1rem;
+      font-size: 1.8rem;
+      font-family: 'Caveat', cursive;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+    }
+
+    nav {
+      margin-top: 2rem;
+    }
+
+    nav a {
+      color: #ffd700;
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      padding: 8px 12px;
+      border: 2px solid #ffd700;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #ffd700;
+      color: #000;
+    }
+
+    section {
+      height: 100vh;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 2rem 4rem;
+      position: relative;
+      animation: fadeIn 1.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.85));
+      z-index: 1;
+    }
+
+    .overlay {
+      position: relative;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 600px;
+      z-index: 2;
+      text-align: left;
+      color: #fff;
+    }
+
+    .overlay h2 {
+      font-family: 'Caveat', cursive;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .overlay p {
+      font-style: italic;
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #111;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      .overlay h2 {
+        font-size: 1.8rem;
+      }
+      .overlay p {
+        font-size: 1rem;
+      }
+      header, section {
+        justify-content: center;
+        padding: 2rem;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -124,45 +151,52 @@
   <header>
     <h1>Sedhumathavan</h1>
     <p>Screenplay Writer | Director | Visual Storyteller</p>
+    <nav>
+      <a href="#direction">Direction</a>
+      <a href="#screenplay">Screenplay</a>
+      <a href="#production">Prod. Design</a>
+      <a href="#assistant">Asst. Director</a>
+      <a href="#acting">Actor</a>
+    </nav>
   </header>
 
   <!-- Direction Section -->
-  <section style="background-image: url('pexels-maoriginalphotography-1485894.jpg');">
+  <section id="direction" style="background-image: url('pic1.jpg');">
     <div class="overlay">
       <h2>Direction</h2>
-      <p>Crafted visual narratives with compelling emotional arcs. Directed “Whispers of the Wind” (2024), a short film on grief and silence — Official Selection at IndieCineFest.</p>
+      <p>Directed <em>“Whispers of the Wind”</em> (2024) — a poignant short on grief and silence. Official Selection at IndieCineFest. Created visual narratives grounded in emotion and space.</p>
     </div>
   </section>
 
   <!-- Screenplay Writing Section -->
-  <section style="background-image: url('pexels-eberhardgross-691668.jpg');">
+  <section id="screenplay" style="background-image: url('pic2.jpg');">
     <div class="overlay">
       <h2>Screenplay Writing</h2>
-      <p>Wrote screenplay for “Echoes in the Frame” (2023), blending nonlinear timelines and symbolism. Praised for depth in character motivation and subtextual storytelling.</p>
+      <p>Scripted <em>“Echoes in the Frame”</em> (2023), a non-linear psychological narrative, acclaimed for its layered characters and subtext-rich dialogues.</p>
     </div>
   </section>
 
   <!-- Asst. Production Designer Section -->
-  <section style="background-image: url('pexels-christian-heitz-285904-842711.jpg');">
+  <section id="production" style="background-image: url('pic3.jpg');">
     <div class="overlay">
       <h2>Asst. Production Designer</h2>
-      <p>Supported production design for “The Forgotten City” (2023), managing set aesthetics and design continuity with a keen eye for detail and period-accurate elements.</p>
+      <p>Worked on <em>“The Forgotten City”</em> (2023), managing set aesthetics, props, and continuity — bringing era-specific realism to the screen.</p>
     </div>
   </section>
 
   <!-- Asst. Director Section -->
-  <section style="background-image: url('pexels-sohi-807598.jpg');">
+  <section id="assistant" style="background-image: url('pic4.jpg');">
     <div class="overlay">
       <h2>Asst. Director</h2>
-      <p>Coordinated and streamlined production schedules for “Chiaroscuro” (2022), ensuring seamless on-set communication between departments and talent.</p>
+      <p>Organized schedules, call sheets, and communication on the set of <em>“Chiaroscuro”</em> (2022). Ensured seamless shoot coordination and direction support.</p>
     </div>
   </section>
 
   <!-- Actor Section -->
-  <section style="background-image: url('pexels-lilartsy-1213447.jpg');">
+  <section id="acting" style="background-image: url('pic5.jpg');">
     <div class="overlay">
       <h2>Actor</h2>
-      <p>Portrayed the lead in “A Room with Echoes” (2021), a psychological drama exploring isolation and identity. Commended for nuanced expression and emotional restraint.</p>
+      <p>Played lead in <em>“A Room with Echoes”</em> (2021), portraying a character trapped between memory and madness. Praised for subtle, introspective performance.</p>
     </div>
   </section>
 
