@@ -3,149 +3,162 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Intro with Smooth Transition</title>
+  <title>My Portfolio</title>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: Arial, sans-serif;
     }
 
-    html, body {
+    body, html {
       height: 100%;
-      font-family: Arial, sans-serif;
       scroll-behavior: smooth;
     }
 
-    .intro {
+    section {
       height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      text-align: center;
-      color: #fff;
-      background: #000;
+      color: white;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transition: background-image 1s ease-in-out;
       position: relative;
     }
 
-    .intro h1 {
-      font-size: 3rem;
-      line-height: 1.5;
-      max-width: 80%;
+    .intro {
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      padding: 2rem;
     }
 
-    .intro h1 a {
-      color: #00ffff;
+    .intro h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .intro p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .intro a {
+      color: #00e0ff;
       text-decoration: underline;
       cursor: pointer;
     }
 
-    .slideshow {
-      position: relative;
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    .slide {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      opacity: 0;
-      transition: opacity 2s ease-in-out;
-    }
-
-    .slide.active {
-      opacity: 1;
-    }
-
-    .content {
-      position: absolute;
-      bottom: 20%;
-      left: 50%;
-      transform: translateX(-50%);
-      color: #fff;
+    .section-content {
+      max-width: 800px;
       text-align: center;
-      cursor: pointer;
-    }
-
-    .content h2 {
-      font-size: 2rem;
-      background-color: rgba(0, 0, 0, 0.4);
-      padding: 10px 20px;
+      background-color: rgba(0,0,0,0.6);
+      padding: 2rem;
       border-radius: 10px;
-      transition: background 0.3s ease;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      opacity: 0.9;
     }
 
-    .content h2:hover {
-      background-color: rgba(0, 0, 0, 0.6);
+    .section-content.expanded {
+      max-height: none;
+      opacity: 1;
+      background-color: rgba(0,0,0,0.85);
     }
 
-    .content.expand p {
-      margin-top: 15px;
-      font-size: 1.1rem;
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 15px;
-      border-radius: 8px;
+    .section-content h2 {
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+
+    .section-content p {
+      display: none;
+      margin-top: 1rem;
+    }
+
+    .section-content.expanded p {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .intro h1 {
+        font-size: 2rem;
+      }
+
+      .section-content h2 {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
 
   <!-- Intro Section -->
-  <section class="intro">
-    <h1>
-      Welcome to my portfolio! <br />
-      Click on <a href="#direction">direction</a> to explore more.
-    </h1>
-  </section>
-
-  <!-- Slideshow Section -->
-  <section id="direction" class="slideshow">
-    <div class="slide active" style="background-image: url('pic1.jpg');"></div>
-    <div class="slide" style="background-image: url('pic2.jpg');"></div>
-    <div class="slide" style="background-image: url('pic3.jpg');"></div>
-    <div class="slide" style="background-image: url('pic4.jpg');"></div>
-    <div class="slide" style="background-image: url('pic5.jpg');"></div>
-
-    <div class="content" onclick="expandContent(this)">
-      <h2>Direction</h2>
-      <p style="display: none;">
-        This is the direction section where I showcase the path of my creative work, process, and visual journey.
+  <section class="intro" id="intro">
+    <div>
+      <h1>Welcome to My Portfolio</h1>
+      <p>
+        This site highlights my journey through the five key pillars of a project lifecycle:
+        <br/>
+        <br/>
+        <strong>
+          <a href="#direction">Direction</a>, Design, Development, Deployment, and Documentation
+        </strong>.
+        <br/><br/>
+        Click on each section to reveal more about my work.
       </p>
     </div>
   </section>
 
+  <!-- Direction -->
+  <section style="background-image: url('pic1.jpg');" id="direction">
+    <div class="section-content" onclick="toggleExpand(this)">
+      <h2>Direction</h2>
+      <p>This phase involves understanding project goals, aligning with stakeholders, and setting a clear roadmap.</p>
+    </div>
+  </section>
+
+  <!-- Design -->
+  <section style="background-image: url('pic2.jpg');" id="design">
+    <div class="section-content" onclick="toggleExpand(this)">
+      <h2>Design</h2>
+      <p>This phase includes wireframing, prototyping, and ensuring user-centric visual aesthetics and usability.</p>
+    </div>
+  </section>
+
+  <!-- Development -->
+  <section style="background-image: url('pic3.jpg');" id="development">
+    <div class="section-content" onclick="toggleExpand(this)">
+      <h2>Development</h2>
+      <p>Code, test, and build scalable applications using modern tech stacks and agile methodologies.</p>
+    </div>
+  </section>
+
+  <!-- Deployment -->
+  <section style="background-image: url('pic4.jpg');" id="deployment">
+    <div class="section-content" onclick="toggleExpand(this)">
+      <h2>Deployment</h2>
+      <p>Continuous integration and delivery pipelines ensure fast and reliable product rollouts.</p>
+    </div>
+  </section>
+
+  <!-- Documentation -->
+  <section style="background-image: url('pic5.jpg');" id="documentation">
+    <div class="section-content" onclick="toggleExpand(this)">
+      <h2>Documentation</h2>
+      <p>Comprehensive documentation ensures maintainability, onboarding, and team collaboration.</p>
+    </div>
+  </section>
+
   <script>
-    // Background slideshow logic
-    const slides = document.querySelectorAll('.slide');
-    let current = 0;
-
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.remove('active');
-        if (i === index) {
-          slide.classList.add('active');
-        }
-      });
-    }
-
-    setInterval(() => {
-      current = (current + 1) % slides.length;
-      showSlide(current);
-    }, 5000); // every 5 seconds
-
-    // Expand content logic
-    function expandContent(element) {
-      const paragraph = element.querySelector('p');
-      if (paragraph.style.display === "none") {
-        paragraph.style.display = "block";
-        element.classList.add("expand");
-      } else {
-        paragraph.style.display = "none";
-        element.classList.remove("expand");
-      }
+    function toggleExpand(element) {
+      element.classList.toggle('expanded');
     }
   </script>
 
